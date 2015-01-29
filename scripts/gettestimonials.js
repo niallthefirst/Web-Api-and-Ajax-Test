@@ -4,8 +4,12 @@
 $(document).ready(function () {
     console.log("ready");
 
-    $.ajax("/models/datajson.js",
-            { dataType: "json" })
+
+    $.ajax( {
+                dataType: "json",
+                url: 'api/testimonials',
+                type: 'GET'
+            })
         .fail(function (jqXHR, textStatus, errorThrown) {
             console.log("fail " + errorThrown);
         })
@@ -13,42 +17,58 @@ $(document).ready(function () {
             console.log("done");
             //var jsonData = JSON.stringify(data);
 
-            $.each(data.testimonials, function (index, value) {
-                console.log(value.name);
+            $.each(data, function (index, value) {
+                console.log(value);
             });
         }
     );
 
 
-    $.ajax("/models/dataraw.js",
-            { dataType: "script" })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            console.log("fail " + errorThrown);
-        })
-        .done(function (data, textStatus, jqXHR) {
-            console.log("done");
-            //var jsonData = JSON.stringify(data);
+    //$.ajax("/models/datajson.js",
+    //        { dataType: "json" })
+    //    .fail(function (jqXHR, textStatus, errorThrown) {
+    //        console.log("fail " + errorThrown);
+    //    })
+    //    .done(function (data, textStatus, jqXHR) {
+    //        console.log("done");
+    //        //var jsonData = JSON.stringify(data);
+
+    //        $.each(data.testimonials, function (index, value) {
+    //            console.log(value.name);
+    //        });
+    //    }
+    //);
 
 
-            var myarray = [];
-            var myJSONString = "";
-            var myJSONObject;
-            for (var i = 0; i < testimonialsArray.length; i++) {
-                var item = {
-                    "name": testimonialsArray[i][1],
-                    "comment": testimonialsArray[i][3],
-                    "date": testimonialsArray[i][0]
-                };
+    //$.ajax("/models/datajs.js",
+    //        { dataType: "script" })
+    //    .fail(function (jqXHR, textStatus, errorThrown) {
+    //        console.log("fail " + errorThrown);
+    //    })
+    //    .done(function (data, textStatus, jqXHR) {
+    //        console.log("done");
+    //        //var jsonData = JSON.stringify(data);
 
-                myarray.push(item);
-            }
 
-            myJSONString = JSON.stringify({ testimonials: myarray });
-            myJSONObject = JSON.parse(myJSONString);
+    //        var myarray = [];
+    //        var myJSONString = "";
+    //        var myJSONObject;
+    //        for (var i = 0; i < testimonialsArray.length; i++) {
+    //            var item = {
+    //                "name": testimonialsArray[i][1],
+    //                "comment": testimonialsArray[i][3],
+    //                "date": testimonialsArray[i][0]
+    //            };
+
+    //            myarray.push(item);
+    //        }
+
+    //        myJSONString = JSON.stringify({ testimonials: myarray });
+    //        myJSONObject = JSON.parse(myJSONString);
             
-            $.each(myJSONObject.testimonials, function (index, value) {
-                console.log(value.name);
-            });
-        }
-    );
+    //        $.each(myJSONObject.testimonials, function (index, value) {
+    //            console.log(value.name);
+    //        });
+    //    }
+    //);
 });

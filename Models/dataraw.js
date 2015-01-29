@@ -1,5 +1,4 @@
-﻿var testimonialsArray = [
-['2011', 'Peter & Mary', '', 'Thank you for a wonderful stay in Ballyglass Cottage. You have resorted the building beautiful with so many of the original features. Its peace and tranquillity welcome you home after a busty day out. We ill definitely be back!'],
+﻿['2011', 'Peter & Mary', '', 'Thank you for a wonderful stay in Ballyglass Cottage. You have resorted the building beautiful with so many of the original features. Its peace and tranquillity welcome you home after a busty day out. We ill definitely be back!'],
 ['2011', 'Noel & Michelle', '', 'We had and amaxing stay, the cottahe is stunnin and we will most certainly be back again!'],
 ['2011', 'The Becketts & Bridie,', '', 'Weve had a great week here in Ballyglass Cottage. Thank you very much for providing us with a wonderfully cosy abode. Well done with the restoration, its beautiful. Hope to be back again in the future.'],
 ['2011', 'Catriona', '', 'Well done guys - it cound be more comfortable and welcoming. I hope you reap the rewards of your labour and love.'],
@@ -20,4 +19,3 @@
 ['2012', 'Mary & Peter', '', 'Yet another wonderful stay. Such a great location for us to visit family in the Roscommon Balinasloe area. Cant believe the swallows are still here at the end of September!!'],
 ['2012', 'Pauline, Mick and family', '', 'Lovely stay, made us very welcome. Lovely views. Will return soon.'],
 ['2012', 'Thomas & familiy', '', 'Had a nice time except for the weather. Your cottage is lovely and it was good to meet you. Would like to come again.']
-];
