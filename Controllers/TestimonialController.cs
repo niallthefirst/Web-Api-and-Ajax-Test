@@ -28,7 +28,8 @@ namespace WebApiTest
 
             var result = new List<Testimonial>();
 
-            var connectionString = ConfigurationManager.ConnectionStrings["TestimonialsDB"].ToString();
+            //var connectionString = ConfigurationManager.ConnectionStrings["TestimonialsDB_D"].ToString();
+            var connectionString = ConfigurationManager.ConnectionStrings["TestimonialsDB_C"].ToString();
 
             using (SqlConnection sqlConnection1 = new SqlConnection(connectionString))
             {

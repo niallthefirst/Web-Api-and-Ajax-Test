@@ -3,13 +3,50 @@
 
 $(document).ready(function () {
     console.log("ready");
+    
+    getTestimonials();
+
+    $("#Add").click(function () {
+        var data = {
+            "Name": "name",
+            "Comment": "comment",
+            "Date": "2014"
+        };
+
+        addTestimonial(data);
+    });
+
+});
+
+var addTestimonial = function (dataJSON) {
+
+    $.ajax({
+        dataType: "json",
+        url: 'api/testimonials',
+        type: 'POST',
+        data: JSON.stringify(dataJSON)
+    })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            console.log("fail " + errorThrown);
+        })
+        .done(function (data, textStatus, jqXHR) {
+            console.log(data);
+            //var jsonData = JSON.stringify(data);
+
+            
+        }
+    );
 
 
-    $.ajax( {
-                dataType: "json",
-                url: 'api/testimonials',
-                type: 'GET'
-            })
+};
+
+var getTestimonials = function () {
+
+    $.ajax({
+        dataType: "json",
+        url: 'api/testimonials',
+        type: 'GET'
+    })
         .fail(function (jqXHR, textStatus, errorThrown) {
             console.log("fail " + errorThrown);
         })
@@ -65,10 +102,11 @@ $(document).ready(function () {
 
     //        myJSONString = JSON.stringify({ testimonials: myarray });
     //        myJSONObject = JSON.parse(myJSONString);
-            
+
     //        $.each(myJSONObject.testimonials, function (index, value) {
     //            console.log(value.name);
     //        });
     //    }
     //);
-});
+
+};
