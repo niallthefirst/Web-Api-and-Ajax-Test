@@ -9,7 +9,7 @@ namespace WebApiTest.Controllers
     {
         public string Name { get; set; }
         public string Comment { get; set; }
-
         public string Date { get; set; }
+        public int ID { get; set; }
     }
 }

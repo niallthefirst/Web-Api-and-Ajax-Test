@@ -2,7 +2,7 @@
 /// <reference path="jquery-2.1.3.intellisense.js" />
 
 $(document).ready(function () {
-    console.log("ready");
+    writeResult("ready");
     
     getTestimonials();
 
@@ -18,24 +18,26 @@ $(document).ready(function () {
 
 });
 
+var writeResult = function (message)
+{
+     $("#result").text(message);
+}
+
 var addTestimonial = function (dataJSON) {
 
     $.ajax({
         dataType: "json",
         url: 'api/testimonials',
         type: 'POST',
-        data: JSON.stringify(dataJSON)
-    })
+        data: dataJSON
+        })
         .fail(function (jqXHR, textStatus, errorThrown) {
-            console.log("fail " + errorThrown);
+            writeResult("fail " + errorThrown);
         })
         .done(function (data, textStatus, jqXHR) {
-            console.log(data);
-            //var jsonData = JSON.stringify(data);
+            writeResult(data);
 
-            
-        }
-    );
+        });
 
 
 };
@@ -48,65 +50,72 @@ var getTestimonials = function () {
         type: 'GET'
     })
         .fail(function (jqXHR, textStatus, errorThrown) {
+            writeResult("fail " + errorThrown);
+        })
+        .done(function (data, textStatus, jqXHR) {
+            //var jsonData = JSON.stringify(data);
+            var message;
+            $.each(data, function (index, value) {
+                message += " | " + JSON.stringify(value);
+            });
+            writeResult(message);
+        }
+    );
+
+};
+
+var getTestimonialsFromJSONFile = function () {
+
+    
+
+    $.ajax("/models/datajson.js",
+            { dataType: "json" })
+        .fail(function (jqXHR, textStatus, errorThrown) {
             console.log("fail " + errorThrown);
         })
         .done(function (data, textStatus, jqXHR) {
             console.log("done");
             //var jsonData = JSON.stringify(data);
 
-            $.each(data, function (index, value) {
-                console.log(value);
+            $.each(data.testimonials, function (index, value) {
+                console.log(value.name);
+            });
+        }
+    );    
+};
+
+var getTestimonialsFromJSFile = function () {
+
+    $.ajax("/models/datajs.js",
+            { dataType: "script" })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            console.log("fail " + errorThrown);
+        })
+        .done(function (data, textStatus, jqXHR) {
+            console.log("done");
+            //var jsonData = JSON.stringify(data);
+
+
+            var myarray = [];
+            var myJSONString = "";
+            var myJSONObject;
+            for (var i = 0; i < testimonialsArray.length; i++) {
+                var item = {
+                    "name": testimonialsArray[i][1],
+                    "comment": testimonialsArray[i][3],
+                    "date": testimonialsArray[i][0]
+                };
+
+                myarray.push(item);
+            }
+
+            myJSONString = JSON.stringify({ testimonials: myarray });
+            myJSONObject = JSON.parse(myJSONString);
+
+            $.each(myJSONObject.testimonials, function (index, value) {
+                console.log(value.name);
             });
         }
     );
-
-
-    //$.ajax("/models/datajson.js",
-    //        { dataType: "json" })
-    //    .fail(function (jqXHR, textStatus, errorThrown) {
-    //        console.log("fail " + errorThrown);
-    //    })
-    //    .done(function (data, textStatus, jqXHR) {
-    //        console.log("done");
-    //        //var jsonData = JSON.stringify(data);
-
-    //        $.each(data.testimonials, function (index, value) {
-    //            console.log(value.name);
-    //        });
-    //    }
-    //);
-
-
-    //$.ajax("/models/datajs.js",
-    //        { dataType: "script" })
-    //    .fail(function (jqXHR, textStatus, errorThrown) {
-    //        console.log("fail " + errorThrown);
-    //    })
-    //    .done(function (data, textStatus, jqXHR) {
-    //        console.log("done");
-    //        //var jsonData = JSON.stringify(data);
-
-
-    //        var myarray = [];
-    //        var myJSONString = "";
-    //        var myJSONObject;
-    //        for (var i = 0; i < testimonialsArray.length; i++) {
-    //            var item = {
-    //                "name": testimonialsArray[i][1],
-    //                "comment": testimonialsArray[i][3],
-    //                "date": testimonialsArray[i][0]
-    //            };
-
-    //            myarray.push(item);
-    //        }
-
-    //        myJSONString = JSON.stringify({ testimonials: myarray });
-    //        myJSONObject = JSON.parse(myJSONString);
-
-    //        $.each(myJSONObject.testimonials, function (index, value) {
-    //            console.log(value.name);
-    //        });
-    //    }
-    //);
 
 };
