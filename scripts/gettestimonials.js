@@ -16,6 +16,17 @@ $(document).ready(function () {
         addTestimonial(data);
     });
 
+    $("#GetAll").click(function () {
+        getTestimonials();
+    });
+
+   
+    $("#Get").click(function () {
+        var value = $("#id").val();
+        getSingleTestimonial(value);
+    });
+    
+
 });
 
 var writeResult = function (message)
@@ -39,6 +50,27 @@ var addTestimonial = function (dataJSON) {
 
         });
 
+
+};
+
+var getSingleTestimonial = function (id) {
+
+    $.ajax({
+        dataType: "json",
+        url: 'api/testimonials/'+id,
+        type: 'GET',
+        
+    })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            writeResult("fail " + errorThrown);
+        })
+        .done(function (data, textStatus, jqXHR) {
+            //var jsonData = JSON.stringify(data);
+            var message = JSON.stringify(data);
+
+            writeResult(message);
+        }
+    );
 
 };
 

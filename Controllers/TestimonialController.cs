@@ -46,7 +46,7 @@ namespace WebApiTest
                     sqlConnection1.Open();
 
 
-                    var testimonial = new Testimonial();
+                    
                     using (reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -56,8 +56,11 @@ namespace WebApiTest
                             string comment = reader.GetString(2);
                             string date = reader.GetString(3);
 
+                            var testimonial = new Testimonial();
+                            testimonial.ID = index;
                             testimonial.Name = name;
                             testimonial.Comment = comment;
+                            testimonial.Date = date;
                             
                             result.Add(testimonial);
 
@@ -101,7 +104,8 @@ namespace WebApiTest
 
             var testimonials = Get();
 
-            result = testimonials.Where(t => t.ID == id).Single();
+            if(testimonials.Where(t => t.ID == id).Any())
+                result = testimonials.Where(t => t.ID == id).Single();
 
 
             return result;
