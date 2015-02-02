@@ -1,0 +1,13 @@
+D:\Documents\GitHub\WebApiTest\Web-Api-and-Ajax-Test\bin\WebApiTest.dll.config
+D:\Documents\GitHub\WebApiTest\Web-Api-and-Ajax-Test\bin\WebApiTest.dll
+D:\Documents\GitHub\WebApiTest\Web-Api-and-Ajax-Test\bin\WebApiTest.pdb
+D:\Documents\GitHub\WebApiTest\Web-Api-and-Ajax-Test\bin\Newtonsoft.Json.dll
+D:\Documents\GitHub\WebApiTest\Web-Api-and-Ajax-Test\bin\System.Net.Http.Formatting.dll
+D:\Documents\GitHub\WebApiTest\Web-Api-and-Ajax-Test\bin\System.Web.Http.dll
+D:\Documents\GitHub\WebApiTest\Web-Api-and-Ajax-Test\bin\System.Web.Http.WebHost.dll
+D:\Documents\GitHub\WebApiTest\Web-Api-and-Ajax-Test\bin\Newtonsoft.Json.xml
+D:\Documents\GitHub\WebApiTest\Web-Api-and-Ajax-Test\bin\System.Net.Http.Formatting.xml
+D:\Documents\GitHub\WebApiTest\Web-Api-and-Ajax-Test\bin\System.Web.Http.xml
+D:\Documents\GitHub\WebApiTest\Web-Api-and-Ajax-Test\bin\System.Web.Http.WebHost.xml
+D:\Documents\GitHub\WebApiTest\Web-Api-and-Ajax-Test\obj\Release\WebApiTest.dll
+D:\Documents\GitHub\WebApiTest\Web-Api-and-Ajax-Test\obj\Release\WebApiTest.pdb
